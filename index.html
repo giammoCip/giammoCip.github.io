@@ -3,133 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GIANMARCO CIPRIANI</title>
+    <title>Gianmarco Cipriani</title>
     <style>
+        /* Body and background settings */
         body {
+            background-color: black;
+            font-family: 'Courier New', Courier, monospace;
+            color: #00FF00; /* Verde */
             margin: 0;
             padding: 0;
-            font-family: 'Courier New', Courier, monospace;
-            color: #00FF00;
-            background: linear-gradient(to bottom, #000000, #1a1a1a);
             height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-direction: column;
             text-align: center;
+            flex-direction: column;
+            animation: glitch 1.5s infinite alternate-reverse;
         }
 
+        /* Glitch animation effect */
+        @keyframes glitch {
+            0% {
+                text-shadow: 1px 1px 5px rgba(0, 255, 0, 0.7), -1px -1px 10px rgba(0, 255, 0, 0.5);
+                transform: translate(0);
+            }
+            100% {
+                text-shadow: -1px -1px 5px rgba(0, 255, 0, 0.7), 1px 1px 10px rgba(0, 255, 0, 0.5);
+                transform: translate(-5px, 5px);
+            }
+        }
+
+        /* Title styling */
         h1 {
-            font-size: 4em;
+            font-size: 3em;
             margin-bottom: 20px;
-            letter-spacing: 5px;
-            text-shadow: 0 0 10px #00FF00, 0 0 20px #00FF00, 0 0 30px #00FF00;
-        }
-
-        p {
-            font-size: 1.5em;
-            margin-bottom: 40px;
-            max-width: 600px;
-            line-height: 1.5;
             letter-spacing: 2px;
-            text-shadow: 0 0 10px #00FF00;
         }
 
-        .navbar {
-            position: absolute;
-            bottom: 20px;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .navbar a {
+        /* Paragraph styling */
+        p {
             font-size: 1.2em;
-            color: #00FF00;
-            text-decoration: none;
-            padding: 10px 20px;
-            border: 2px solid #00FF00;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-            letter-spacing: 1px;
+            line-height: 1.5;
+            margin: 0 20px;
+            max-width: 600px;
         }
 
-        .navbar a:hover {
+        /* Buttons styling */
+        .button {
+            background-color: transparent;
+            border: 2px solid #00FF00;
+            color: #00FF00;
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 1.2em;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Button hover effect */
+        .button:hover {
             background-color: #00FF00;
-            color: #000000;
+            color: black;
             transform: scale(1.1);
         }
 
-        .button {
-            position: relative;
-            display: inline-block;
-            font-size: 1.5em;
-            padding: 15px 30px;
-            margin: 5px;
-            background-color: transparent;
-            color: #00FF00;
-            border: 2px solid #00FF00;
-            border-radius: 5px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            cursor: pointer;
-            outline: none;
-            box-shadow: 0 0 10px #00FF00, 0 0 20px #00FF00;
-            transition: all 0.4s ease;
-        }
-
-        .button:hover {
-            background-color: #00FF00;
-            color: #000000;
-            box-shadow: 0 0 30px #00FF00, 0 0 50px #00FF00;
-        }
-
+        /* Content section (hidden by default) */
         .content {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .content p, .content h1 {
-            animation: fadeIn 2s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
+            display: none;
+            margin-top: 20px;
+            text-align: left;
         }
     </style>
 </head>
 <body>
-    <div class="content">
-        <h1>GIANMARCO CIPRIANI</h1>
-        <p>"Un hacker non è solo colui che penetra nei sistemi, ma colui che apre nuove porte alla conoscenza. Il futuro appartiene a coloro che credono nella bellezza dei propri sogni."</p>
+
+    <!-- Title -->
+    <h1>Gianmarco Cipriani</h1>
+
+    <!-- Paragraph -->
+    <p>Un hacker non è solo colui che penetra nei sistemi, ma colui che apre nuove porte alla conoscenza. Il futuro appartiene a coloro che credono nella bellezza dei propri sogni.</p>
+
+    <!-- Navigation buttons -->
+    <div>
+        <button class="button" onclick="showContent('home')">Home</button>
+        <button class="button" onclick="showContent('about')">About</button>
+        <button class="button" onclick="showContent('contact')">Contact</button>
     </div>
 
-    <div class="navbar">
-        <a href="javascript:void(0);" class="button" onclick="changeContent('home')">Home</a>
-        <a href="javascript:void(0);" class="button" onclick="changeContent('about')">About</a>
-        <a href="javascript:void(0);" class="button" onclick="changeContent('contact')">Contact</a>
+    <!-- Content sections -->
+    <div id="home" class="content">
+        <h2>Home</h2>
+        <p>Benvenuto sulla pagina di Gianmarco Cipriani, un hacker appassionato di tecnologia e innovazione.</p>
     </div>
 
+    <div id="about" class="content">
+        <h2>About</h2>
+        <p>"I am Gianmarco Cipriani, studying Cyber Security at the University of Naples Federico II. https://github.com/Cyber-HackAdemy-UniNa"</p>
+    </div>
+
+    <div id="contact" class="content">
+        <h2>Contact</h2>
+        <p>Instagram: <a href="https://instagram.com" target="_blank">gianmarco.cipriani96</a></p>
+        <p>Email: <a href="mailto:gianmarco@example.com">gianmarco.cipriani1@icloud.com</a></p>
+        <p>LinkedIn: <a href="https://linkedin.com" target="_blank">https://www.linkedin.com/in/gianmarco-cipriani-b830a033b//a></p>
+    </div>
+
+    <!-- JavaScript to handle showing content -->
     <script>
-        // Funzione per cambiare il contenuto quando si preme uno dei tasti
-        function changeContent(page) {
-            let content = "";
-            if (page === 'home') {
-                content = `<h1>Benvenuto nel mio mondo digitale</h1>
-                           <p>Qui tutto è possibile. La realtà è solo una variabile che il codice può manipolare.</p>`;
-            } else if (page === 'about') {
-                content = `<h1>Chi sono</h1>
-                           <p>Sono un hacker, un ricercatore e un innovatore. L'informatica è la mia passione, e la libertà è la mia missione.</p>`;
-            } else if (page === 'contact') {
-                content = `<h1>Contattami</h1>
-                           <p>Puoi raggiungermi tramite email all'indirizzo: gianmarco.ciprianiq@icloud.com 
-                                                                  Instagram: gianmarco.cipriani96
-                                                                Linkedin:https://www.linkedin.com/in/gianmarco-cipriani-b830a033b/
-                        
-            document.querySelector('.content').innerHTML = content;
+        function showContent(section) {
+            // Hide all sections
+            var sections = document.querySelectorAll('.content');
+            sections.forEach(function(section) {
+                section.style.display = 'none';
+            });
+
+            // Show the selected section
+            document.getElementById(section).style.display = 'block';
         }
+
+        // Show the home section by default
+        showContent('home');
     </script>
+
 </body>
 </html>
